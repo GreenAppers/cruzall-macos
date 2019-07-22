@@ -1,0 +1,6 @@
+[submodule "cruzall-desktop"]
+	path = cruzall-desktop
+	url = https://github.com/GreenAppers/cruzall-desktop
+[submodule "cruzall"]
+	path = cruzall
+	url = https://github.com/GreenAppers/cruzall

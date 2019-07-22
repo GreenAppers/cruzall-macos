@@ -1,0 +1,36 @@
+os: osx
+language: objective-c
+osx_image: xcode10.1
+
+cache:
+  directories:
+  - vendor/bundle
+  - "$HOME/.pub-cache"
+
+before_install:
+  - echo $TRAVIS_OS_NAME
+  - echo ${HOME}
+  - echo ${TRAVIS_BUILD_DIR}
+  - brew update
+  - gem install fastlane
+  - gem install cocoapods
+  - git clone https://github.com/flutter/flutter.git -b master --depth 1 ${HOME}/flutter
+  - cd cruzall
+  - ./desktop/setup.sh ../cruzall-desktop
+  - export ENABLE_FLUTTER_DESKTOP=true
+  - ${HOME}/flutter/bin/flutter doctor -v
+  - ${HOME}/flutter/bin/flutter packages get
+  - cd macos
+  - pod repo update
+  - cd ../..
+
+script:
+  - cd cruzall
+  - ${HOME}/flutter/bin/flutter -v build macos --release --no-codesign
+
+after_success:
+  - ls -l build/macos/Build/Products/Release/Cruzall.app
+  - echo "success"
+
+after_failure:
+  - echo "failure"
