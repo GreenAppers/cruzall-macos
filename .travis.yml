@@ -23,7 +23,7 @@ before_install:
 
 script:
   - cd cruzall
-  - ${HOME}/flutter/bin/flutter -v build macos --release --no-codesign
+  - ${HOME}/flutter/bin/flutter -v build macos --release
 
 after_success:
   - ls -l build/macos/Build/Products/Release/Cruzall.app
