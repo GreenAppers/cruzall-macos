@@ -19,7 +19,8 @@ before_install:
   - ./desktop/setup.sh ../cruzall-desktop
   - export ENABLE_FLUTTER_DESKTOP=true
   - ${HOME}/flutter/bin/flutter doctor -v
-  - ${HOME}/flutter/bin/flutter packages get
+  - ${HOME}/flutter/bin/flutter precache --macos
+  - ${HOME}/flutter/bin/flutter packages upgrade
   - cd ..
 
 script:
