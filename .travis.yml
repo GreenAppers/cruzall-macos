@@ -11,8 +11,6 @@ before_install:
   - echo $TRAVIS_OS_NAME
   - echo ${HOME}
   - echo ${TRAVIS_BUILD_DIR}
-  - brew update
-  - gem install fastlane
   - gem install cocoapods
   - git clone https://github.com/flutter/flutter.git -b master ${HOME}/flutter
   - cd cruzall
@@ -25,6 +23,7 @@ before_install:
 
 before_script:
   - openssl aes-256-cbc -k $CERTIFICATE_PASSWORD -in fastlane/Certificates/distribution.p12.enc -d -a -out fastlane/Certificates/distribution.p12
+  - gem install fastlane
 
 script:
   - fastlane developer_id_app
