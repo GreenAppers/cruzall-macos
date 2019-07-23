@@ -1,0 +1,39 @@
+desc "Build and package a Developer Id app for distribution outside the Mac Store"
+lane :developer_id_app do
+
+  team_id = "9S723G94YQ"
+  keychain_name = "fastlane_certs"
+  keychain_pw = SecureRandom.base64
+
+  create_keychain(
+    name: keychain_name,
+    password: keychain_pw,
+    default_keychain: true,
+    unlock: true,
+    timeout: 3600,
+    lock_when_sleeps: true,
+  )
+  
+  import_certificate(
+    certificate_path: "fastlane/Certificates/distribution.p12",
+    certificate_password: ENV["KEY_PASSWORD"],
+    keychain_name: keychain_name,
+    keychain_password: keychain_pw
+  )
+  
+  gym(
+    clean: true,
+    workspace: "cruzall/macos/Runner.xcworkspace",
+    scheme: "LTerminal",
+    configuration: "Release",
+    include_bitcode: false,
+    include_symbols: true,
+    export_team_id: team_id,
+    export_method: 'package'
+  )
+
+  dmg(
+    path: "Cruzall.app",
+    output_path: "Cruzall.dmg"
+  )
+end

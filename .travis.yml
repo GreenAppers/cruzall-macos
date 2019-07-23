@@ -23,13 +23,20 @@ before_install:
   - ${HOME}/flutter/bin/flutter packages get
   - cd ..
 
+before_script:
+  - openssl aes-256-cbc -k $CERTIFICATE_PASSWORD -in fastlane/Certificates/distribution.p12.enc -d -a -out fastlane/Certificates/distribution.p12
+
 script:
-  - cd cruzall
-  - ${HOME}/flutter/bin/flutter -v build macos --release
+  - fastlane developer_id_app
 
 after_success:
-  - ls -l build/macos/Build/Products/Release/Cruzall.app
   - echo "success"
+  - md5 Cruzall.dmg
 
 after_failure:
   - echo "failure"
+
+env:
+  global:
+  - secure: D3JCLyaeTYvjw4CY6aPRdJVIFlw3OYmmfagYghdjkUuGxgEaXSrDWYtF8cM9lIq5i9TQUHMFEfpRLXnWkAK3hNCi2+G3TQUjRpnwxjMXp0ToCtGDu7lS1/ssECd7anw+UXmLXihohF4gcuzKXKQCCxj4yCEpGM6bS0gwYObMX9Gm5GfJZbRQcOPn3AClSUNQDUHTBRG3r5DuowThNXgrUxv6Jo6OJh3F4Fpjk3GTzraq4Vu3MGEuL8l/Hqcqm0dizeUCvzMzKlS33DiT4ZDlwc8ulKASGDQOwjbyA0pU+FcGNYLj9aV0YP8w3GpzfYSakwYVn2gAudaZZKYwroSYen5KvtyPvUshE77LhH7u4HE40pY66RpOcWDAZKfN0rj0iub4+TzX/LQqEppNMUnu6QzP77UJ5iXuQ+sUo5Y3pQAZBQN4bnyf8IN0zxagePMlson0Dp+eqDAOJPmaUhDrLKyATNBzmSe0YuJge1wGQQh9OSv6rq25Zdeix0bkNjhFstUibF/mjeo3cAY4hRDA7frKeD5z727ONc/DNsdnlFeDi20MUnlySfBHc12O8BRBEtm2sq7w+hDSYpq/bUzaGwx4HXiCSU2D1XxyhL6xLRflpcxsCmlowAvSecCV19TIGbrUsHlBF34C+1kkjtqMNrl/yaHILAIyNmSFtS6qrNg=
+  - secure: oc/jpEvUcbUO4yaqDiFX/facUA2Hf5OvKg6Tw3A7HlvHVnXLWcnlVNjeF27Peu5T709oNo8J0CJEntuoAN6AOnVKhDdZc0rqwNU1zYDNaPWOPXA8bbq+2fCTQiJq8GkW54y+97V3xEzcZ/LW1zWBeX9rgWJRcU1cPP10NdosCe3CkYmzHMAUSworQ+5OtvAkC6GMhhekuzHN4IrKpXJ+1VlWNeCdu13Ab9UY1uRCYs+T1w9sYTrI/z7aDFDsB3xOpcgjqKPLyAUhLt8TG42OzROq+3LViLrRQ+EwClmBKYpelbA7jP2l+lctUdDyhCnR9ieneCfLrA2vHP4WN2fouNxKbVMUtih+C9MHVExq/Ws5yTenK6J+UsCIKHMBQZyJB1UX+Ea93pxFPUlYWNKaEu/EioY2aqzfka87dw9yu2Gp9N+RJ5NTr1mRdivZ5+nNLZFzagLFQCfcGgXDIQ+ljJ6Gh9d9JAn/nc3oPgNUQYpND1RO63k151UxT4ZqiBRpyhruFjvzWakqUZz2yedTs5jViMzVrz58tvU6EmwzUVE0ZACdinJc+A299x2JcgnUhqFLQvhkMhlw0ejqKcw/YVeXlmIftmyOqEEaF9iCnLRXShBZEuEyxI7kVvIsKDwAOqcBW3SKj/gQ7hc21xVF/6jSBmaaSOauwlEsaw0VbLc=
