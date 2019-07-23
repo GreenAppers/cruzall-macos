@@ -14,13 +14,13 @@ before_install:
   - brew update
   - gem install fastlane
   - gem install cocoapods
-  - git clone https://github.com/flutter/flutter.git -b master --depth 1 ${HOME}/flutter
+  - git clone https://github.com/flutter/flutter.git -b master ${HOME}/flutter
   - cd cruzall
   - ./desktop/setup.sh ../cruzall-desktop
   - export ENABLE_FLUTTER_DESKTOP=true
   - ${HOME}/flutter/bin/flutter doctor -v
   - ${HOME}/flutter/bin/flutter precache --macos
-  - ${HOME}/flutter/bin/flutter packages upgrade
+  - ${HOME}/flutter/bin/flutter packages get
   - cd ..
 
 script:
