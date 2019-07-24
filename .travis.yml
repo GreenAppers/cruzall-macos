@@ -1,6 +1,7 @@
 os: osx
 language: objective-c
 osx_image: xcode10.1
+if: tag =~ ^v
 
 cache:
   directories:
@@ -37,6 +38,16 @@ after_success:
 
 after_failure:
   - echo "failure"
+
+deploy:
+  provider: releases
+  api_key:
+    secure: hfvmDOwxI61qDz874WwHOaStcO624fme2MJJGUwB1TihAv8RCsG06lMYKLJxAcTeZ3L6fMgjHyV/PJwwF0yowv27BOrEihiyP7oCLQ5VVzQ8nbWuhyTOnvgiH3PuAd+rn5lkjTNJXHufKFw3B+TMRqDa163L1AVYvhH3jzjKc/tcDCgTayeSeFdljXWAQln88mXacQAnzRT0sQRsYf0adqrZiComhG1xkXe4mA1bxdIe+DtPXSLPo+3ah1YfjCW25P7dM3aLVREhm7EM5s+sLwfpgzp5341dsvxoBUGtnOHJH4t8Ab5hZceBZSgLAoJzAc0nggKgBnsUodSusr3GuHwCg9w1jXBXGGi/aI8NlivsiEmJ3fvPlSWxLakCOQJtLTSfWj0/Jlj2PSGLTDCJKeCNH2AvNpppJbtW4PwNw6BOvm0M4112TvcxdRS0gUO6rOP3HycKhPIA6gfvMCG4k7dV5PINX1dstVXVlhFh5Ya8QFAAmhm+dnhCi6Bqqeet2DW5rHLHcPqyLh93Xwby5cFekMkPTNkwB/S+N1IsHMiXLpbsihOodnFCtKKqbF4Jq2eDZdvPhhjB7UjAzLSo2IdSC7SGdLA9gOwn2SNTJ8IPk8yeHWFDHWlkIZ6mfmlIaG6hB2iuIoeJZvdGr2EJZwLO3hEJmx30SZDRwb8yv2E=
+  file: Cruzall.dmg
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: GreenAppers/cruzall-macos
 
 env:
   global:
