@@ -1,7 +1,6 @@
-desc "Build and package a Developer Id app for distribution outside the Mac Store"
-lane :developer_id_app do
+desc "Create a new keychain and import certificate"
+lane :setup_keychain do
 
-  team_id = "9S723G94YQ"
   keychain_name = "fastlane_certs"
   keychain_pw = SecureRandom.base64
 
@@ -20,7 +19,13 @@ lane :developer_id_app do
     keychain_name: keychain_name,
     keychain_password: keychain_pw
   )
-  
+end
+
+desc "Build and package a Developer Id app for distribution outside the Mac Store"
+lane :developer_id_app do
+
+  team_id = "9S723G94YQ"
+
   gym(
     clean: false,
     workspace: "cruzall/macos/Runner.xcworkspace",

@@ -27,6 +27,7 @@ before_script:
   - gem install fastlane
 
 script:
+  - fastlane setup_keychain
   - cd cruzall
   - ${HOME}/flutter/bin/flutter -v build macos --release
   - cd ..
