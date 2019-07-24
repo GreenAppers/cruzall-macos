@@ -22,7 +22,7 @@ lane :developer_id_app do
   )
   
   gym(
-    clean: true,
+    clean: false,
     workspace: "cruzall/macos/Runner.xcworkspace",
     scheme: "Runner",
     configuration: "Release",
