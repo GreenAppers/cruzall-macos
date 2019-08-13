@@ -13,7 +13,6 @@ before_install:
   - echo ${HOME}
   - echo ${TRAVIS_BUILD_DIR}
   - gem install cocoapods
-  - brew install osxutils
   - git clone https://github.com/flutter/flutter.git -b master ${HOME}/flutter
   - cd cruzall
   - ./desktop/setup.sh ../cruzall-desktop
@@ -34,7 +33,9 @@ script:
   - cd ..
   - fastlane developer_id_app
   - sips -s format icns cruzall/macos/Assets.xcassets/AppIcon.appiconset/Icon-App-256.png --out icon.icns
-  - seticon -d icon.icns Cruzall.dmg
+  - DeRez -only icns icon.icns > icon.rsrc
+  - Rez -append icon.rsrc -o Cruzall.dmg
+  - SetFile -a C Cruzall.dmg
 
 after_success:
   - echo "success"
