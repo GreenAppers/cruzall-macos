@@ -41,8 +41,8 @@ script:
   - cp en/DS_Store /Volumes/Cruzall/.DS_Store
   - SetFile -c icnC /Volumes/Cruzall/.VolumeIcon.icns
   - SetFile -a C /Volumes/Cruzall
+  - rm -rf Cruzall.dmg /Volumes/Cruzall/.fseventsd
   - hdiutil eject /Volumes/Cruzall
-  - rm -rf Cruzall.dmg
   - hdiutil convert Cruzall_writable.dmg -format UDBZ -o Cruzall.dmg
 
 after_success:
