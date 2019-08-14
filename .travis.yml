@@ -36,8 +36,9 @@ script:
   - hdiutil convert Cruzall.dmg -format UDRW -o Cruzall_writable.dmg
   - hdiutil attach Cruzall_writable.dmg
   - ln -s /Applications /Volumes/Cruzall
-  - cp DS_Store /Volumes/Cruzall/.DS_Store
   - cp icon.icns /Volumes/Cruzall/.VolumeIcon.icns
+  - cp en/VolumeBackground.png /Volumes/Cruzall/.VolumeBackground.png
+  - cp en/DS_Store /Volumes/Cruzall/.DS_Store
   - SetFile -c icnC /Volumes/Cruzall/.VolumeIcon.icns
   - SetFile -a C /Volumes/Cruzall
   - hdiutil eject /Volumes/Cruzall
