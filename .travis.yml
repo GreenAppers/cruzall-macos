@@ -24,7 +24,7 @@ before_install:
 
 before_script:
   - openssl aes-256-cbc -k $CERTIFICATE_PASSWORD -in fastlane/Certificates/distribution.p12.enc -d -a -out fastlane/Certificates/distribution.p12
-  - bundle install --full-index
+  - gem install fastlane
 
 script:
   - fastlane setup_keychain
