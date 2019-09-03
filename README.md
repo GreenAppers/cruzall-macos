@@ -1,6 +1,6 @@
-## Cruzall for macOS 1.0.19 [![Build Status](https://travis-ci.org/GreenAppers/cruzall-macos.svg?branch=master)](https://travis-ci.org/GreenAppers/cruzall-macos)
+## Cruzall for macOS 1.1.0 [![Build Status](https://travis-ci.org/GreenAppers/cruzall-macos.svg?branch=master)](https://travis-ci.org/GreenAppers/cruzall-macos)
 <img width=128 src="en/cruzbit.png" /> <img src="en/icon.png" /><br/> See [parent project](https://github.com/GreenAppers/cruzall)
-<br/><br/><img width=300 src="en/screenshot1.png" /> <img width=300 src="en/screenshot2.png" />
+<br/><br/><img width=300 src="en/screenshot1.png" /> <img width=300 src="en/screenshot2.png" /> <img width=300 src="en/screenshot3.png" />
 
 ## Build
 Follow the same procedure as [the continuous integration](https://github.com/GreenAppers/cruzall-macos/blob/master/.travis.yml)
