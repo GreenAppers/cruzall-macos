@@ -13,6 +13,7 @@ before_install:
   - echo ${HOME}
   - echo ${TRAVIS_BUILD_DIR}
   - gem install cocoapods
+  - gem install fastlane
   - git clone https://github.com/flutter/flutter.git -b master ${HOME}/flutter
   - cd cruzall
   - ./desktop/setup.sh ../cruzall-desktop
@@ -24,7 +25,6 @@ before_install:
 
 before_script:
   - openssl aes-256-cbc -k $CERTIFICATE_PASSWORD -in fastlane/Certificates/distribution.p12.enc -d -a -out fastlane/Certificates/distribution.p12
-  - gem install fastlane
 
 script:
   - fastlane setup_keychain
