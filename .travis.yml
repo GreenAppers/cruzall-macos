@@ -33,7 +33,7 @@ script:
   - flutter -v build macos --release
   - cd ..
   - fastlane developer_id_app
-  - sips -s format icns cruzall/macos/Assets.xcassets/AppIcon.appiconset/Icon-App-256.png --out icon.icns
+  - sips -s format icns cruzall/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_256.png --out icon.icns
   - hdiutil convert Cruzall.dmg -format UDRW -o Cruzall_writable.dmg
   - hdiutil attach Cruzall_writable.dmg
   - ln -s /Applications /Volumes/Cruzall
