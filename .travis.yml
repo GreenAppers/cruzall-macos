@@ -15,12 +15,12 @@ before_install:
   - gem install cocoapods
   - gem install fastlane
   - git clone https://github.com/flutter/flutter.git -b master ${HOME}/flutter
+  - export PATH=$PATH:${HOME}/flutter/bin:${HOME}/flutter/bin/cache/dart-sdk/bin
   - cd cruzall
-  - ./desktop/setup.sh ../cruzall-desktop
-  - export ENABLE_FLUTTER_DESKTOP=true
-  - ${HOME}/flutter/bin/flutter doctor -v
-  - ${HOME}/flutter/bin/flutter precache --macos
-  - ${HOME}/flutter/bin/flutter packages get
+  - flutter doctor -v
+  - flutter precache --macos
+  - flutter packages get
+  - ./desktop/setup.sh ./desktop
   - cd ..
 
 before_script:
@@ -29,7 +29,8 @@ before_script:
 script:
   - fastlane setup_keychain
   - cd cruzall
-  - ${HOME}/flutter/bin/flutter -v build macos --release
+  - flutter test
+  - flutter -v build macos --release
   - cd ..
   - fastlane developer_id_app
   - sips -s format icns cruzall/macos/Assets.xcassets/AppIcon.appiconset/Icon-App-256.png --out icon.icns

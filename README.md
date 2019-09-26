@@ -1,4 +1,4 @@
-## Cruzall for macOS 1.1.0 [![Build Status](https://travis-ci.org/GreenAppers/cruzall-macos.svg?branch=master)](https://travis-ci.org/GreenAppers/cruzall-macos)
+## Cruzall for macOS 1.1.2 [![Build Status](https://travis-ci.org/GreenAppers/cruzall-macos.svg?branch=master)](https://travis-ci.org/GreenAppers/cruzall-macos)
 <img width=128 src="assets/en/cruzbit.png" /> <img src="assets/en/icon.png" /><br/> See [parent project](https://github.com/GreenAppers/cruzall)
 <br/><br/><img width=300 src="assets/en/screenshot1.png" /> <img width=300 src="assets/en/screenshot2.png" /> <img width=300 src="assets/en/screenshot3.png" /> <img width=300 src="assets/en/screenshot4.png" />
 
