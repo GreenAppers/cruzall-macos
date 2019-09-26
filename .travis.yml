@@ -17,10 +17,10 @@ before_install:
   - git clone https://github.com/flutter/flutter.git -b master ${HOME}/flutter
   - export PATH=$PATH:${HOME}/flutter/bin:${HOME}/flutter/bin/cache/dart-sdk/bin
   - cd cruzall
+  - ./desktop/setup.sh ./desktop
   - flutter doctor -v
   - flutter precache --macos
   - flutter packages get
-  - ./desktop/setup.sh ./desktop
   - cd ..
 
 before_script:
